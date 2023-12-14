@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './App.css';
 
 function App() {
@@ -35,15 +34,28 @@ function App() {
   //   setCart({ ...cart, items: cart.items.map((item) => ({ ...item, price: item.price * (1 - cart.discount) })) });
   // };
 
-  const [bugs, setBugs] = useState([
-    { id: 1, name: 'Ant', fixed: true },
-    { id: 2, name: 'Grasshopper', fixed: false },
-    { id: 3, name: 'Ladybug', fixed: false },
-  ]);
+  // const [bugs, setBugs] = useState([
+  //   { id: 1, name: 'Ant', fixed: true },
+  //   { id: 2, name: 'Grasshopper', fixed: false },
+  //   { id: 3, name: 'Ladybug', fixed: false },
+  // ]);
+
+  // const handleClick = () => {
+  //   // set bugs arnary  operator to check if id = 2 then fixed = true else fixed = false and return bugs array with updated values using map
+  //   setBugs(bugs.map((bug) => (bug.id === 2 ? { ...bug, fixed: true } : bug)));
+  // };
+
+  const [tags, setTags] = useState(['happy', 'confused']);
 
   const handleClick = () => {
-    // set bugs arnary  operator to check if id = 2 then fixed = true else fixed = false and return bugs array with updated values using map
-    setBugs(bugs.map((bug) => (bug.id === 2 ? { ...bug, fixed: true } : bug)));
+    // add exiting tag to tags array
+    setTags(...tags, 'exiting');
+
+    // remove exiting tag from tags array
+    setTags(tags.filter((tag) => tag !== 'happy'));
+
+    // update exiting tag in tags array
+    setTags(tags.map((tag) => (tag === 'happy' ? 'sad' : tag)));
   };
 
   return (
