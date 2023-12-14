@@ -42,21 +42,29 @@ function App() {
 
   // const handleClick = () => {
   //   // set bugs arnary  operator to check if id = 2 then fixed = true else fixed = false and return bugs array with updated values using map
-  //   setBugs(bugs.map((bug) => (bug.id === 2 ? { ...bug, fixed: true } : bug)));
+  //   // setBugs(bugs.map((bug) => (bug.id === 2 ? { ...bug, fixed: true } : bug)));
+  //   setBugs(
+  //     produce((draft) => {
+  //       const bug = draft.find((bug) => bug.id === 1);
+  //       if (bug) {
+  //         bug.fixed = true;
+  //       }
+  //     })
+  //   );
   // };
 
-  const [tags, setTags] = useState(['happy', 'confused']);
+  // const [tags, setTags] = useState(['happy', 'confused']);
 
-  const handleClick = () => {
-    // add exiting tag to tags array
-    setTags(...tags, 'exiting');
+  // const handleClick = () => {
+  //   // add exiting tag to tags array
+  //   setTags(...tags, 'exiting');
 
-    // remove exiting tag from tags array
-    setTags(tags.filter((tag) => tag !== 'happy'));
+  //   // remove exiting tag from tags array
+  //   setTags(tags.filter((tag) => tag !== 'happy'));
 
-    // update exiting tag in tags array
-    setTags(tags.map((tag) => (tag === 'happy' ? 'sad' : tag)));
-  };
+  //   // update exiting tag in tags array
+  //   setTags(tags.map((tag) => (tag === 'happy' ? 'sad' : tag)));
+  // };
 
   return (
     <div>
