@@ -1,9 +1,9 @@
-import Form from './components/Form';
+import FormZod from './components/FormZod';
 
 const App = () => {
   return (
     <div>
-      <Form />
+      <FormZod />
     </div>
   );
 };
