@@ -1,7 +1,11 @@
 import { Fragment } from 'react';
 
 function ListGourp() {
-  const items = ['An active item', 'A second item', 'A third item', 'A fourth item', 'And a fifth one'];
+  let items = ['An active item', 'A second item', 'A third item', 'A fourth item', 'And a fifth one'];
+
+  items = [];
+
+  if (items.length === 0) return <h1>List is empty</h1>;
 
   return (
     <Fragment>
