@@ -1,7 +1,5 @@
-import { useState } from 'react';
 import './App.css';
-import Cart from './components/Cart';
-import Navbar from './components/Navbar';
+import ExpandableText from './components/ExpandableText';
 
 function App() {
   // const [game, setGame] = useState({
@@ -87,13 +85,14 @@ function App() {
   //   });
   // };
 
-  const [cartItems, setCartItems] = useState(['product 1', 'product 2', 'product 3']);
+  // const [cartItems, setCartItems] = useState(['product 1', 'product 2', 'product 3']);
 
   return (
-    <>
-      <Navbar cartItemsCount={cartItems.length}></Navbar>
-      <Cart cartItems={cartItems} onClearCart={() => setCartItems([])}></Cart>
-    </>
+    <ExpandableText maxChars={10}>
+      {/* <Navbar cartItemsCount={cartItems.length}></Navbar>
+      <Cart cartItems={cartItems} onClearCart={() => setCartItems([])}></Cart> */}
+      Lorem, ipsum. Lorem ipsum dolor sit amet.
+    </ExpandableText>
   );
 }
 
