@@ -14,8 +14,8 @@ const Form = () => {
   //   };
 
   const [person, setPerson] = useState({
-    name: 'John',
-    age: 30,
+    name: '',
+    age: '',
   });
 
   const handleSubmit = (event: FormEvent) => {
@@ -32,9 +32,11 @@ const Form = () => {
           </label>
           <input
             onChange={(event) => setPerson({ ...person, name: event.target.value })}
+            value={person.name}
             id='name'
             type='text'
             className='form-control'
+            placeholder='Enter Name'
           />
         </div>
         <div className='mb-3'>
@@ -43,9 +45,11 @@ const Form = () => {
           </label>
           <input
             onChange={(event) => setPerson({ ...person, age: parseInt(event.target.value) })}
+            value={person.age}
             id='number'
             type='number'
             className='form-control'
+            placeholder='Enter Age'
           />
         </div>
         <button className='btn btn-outline-primary' type='submit'>
