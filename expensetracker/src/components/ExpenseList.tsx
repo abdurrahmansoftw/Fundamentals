@@ -1,3 +1,5 @@
+import { AiTwotoneDelete } from 'react-icons/ai';
+
 interface Expense {
   id: number;
   description: string;
@@ -14,7 +16,7 @@ const ExpenseList = ({ expenses, onDelete }: ExpenseListProps) => {
   if (expenses.length === 0) return <div className='card m-3 p-3'>No expenses</div>;
   return (
     <div className='card m-3 p-3'>
-      <table className='table table-border'>
+      <table className='table table-hover table-border'>
         <thead>
           <tr>
             <th>#</th>
@@ -33,7 +35,7 @@ const ExpenseList = ({ expenses, onDelete }: ExpenseListProps) => {
               <td>{expense.category}</td>
               <td>
                 <button className='btn btn-sm btn-outline-danger' onClick={() => onDelete(expense.id)}>
-                  Delete
+                  <AiTwotoneDelete size='30' />
                 </button>
               </td>
             </tr>
