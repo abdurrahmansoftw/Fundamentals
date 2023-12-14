@@ -1,9 +1,7 @@
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import ExpenseFilter from './components/ExpenseFilter';
 import ExpenseForm from './components/ExpenseForm';
 import ExpenseList from './components/ExpenseList';
-
-export const categories = ['Groceries', 'Utilities', 'Entertainment', 'Furniture'];
 
 const App = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -18,11 +16,12 @@ const App = () => {
   const visibleExpenses = selectedCategory ? expenses.filter((e) => e.category === selectedCategory) : expenses;
 
   return (
-    <Fragment>
+    <div className='container'>
+      <h1 className='text-center text-primary my-3 fw-bold'>Expense Tracker</h1>
       <ExpenseForm />
       <ExpenseFilter onSelectCategory={(category) => setSelectedCategory(category)} />
       <ExpenseList expenses={visibleExpenses} onDelete={(id) => setExpenses(expenses.filter((e) => e.id !== id))} />
-    </Fragment>
+    </div>
   );
 };
 
