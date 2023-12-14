@@ -5,11 +5,15 @@ function ListGourp() {
 
   items = [];
 
-  if (items.length === 0) return <h1>List is empty</h1>;
+  // const message = items.length === 0 ? 'Please create a new item' : 'There are ' + items.length + ' items';
+  // const getMessage = () => {
+  //   return items.length === 0 ? 'Please create a new item' : 'There are ' + items.length + ' items';
+  // };
 
   return (
     <Fragment>
-      <h1>List</h1>
+      <h1>items List</h1>
+      {items.length === 0 && <p>Please create a new item</p>}
       <ul className='list-group'>
         {items.map((item, index) => (
           <li className='list-group-item' key={index}>
