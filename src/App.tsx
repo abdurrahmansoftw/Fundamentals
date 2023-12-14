@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './App.css';
+import Cart from './components/Cart';
+import Navbar from './components/Navbar';
 
 function App() {
   // const [game, setGame] = useState({
@@ -67,28 +69,31 @@ function App() {
   //   setTags(tags.map((tag) => (tag === 'happy' ? 'sad' : tag)));
   // };
 
-  const [customers, setCustomers] = useState({
-    name: 'John Doe',
-    age: 25,
-    address: {
-      street: 'Main Street',
-      city: 'New York',
-      zipCode: '10001',
-    },
-  });
+  // const [customers, setCustomers] = useState({
+  //   name: 'John Doe',
+  //   age: 25,
+  //   address: {
+  //     street: 'Main Street',
+  //     city: 'New York',
+  //     zipCode: '10001',
+  //   },
+  // });
 
-  const handleClick = () => {
-    // update exiting tag in tags array
-    setCustomers({
-      ...customers,
-      address: { ...customers.address, zipCode: '10002' },
-    });
-  };
+  // const handleClick = () => {
+  //   // update exiting tag in tags array
+  //   setCustomers({
+  //     ...customers,
+  //     address: { ...customers.address, zipCode: '10002' },
+  //   });
+  // };
+
+  const [cartItems, setCartItems] = useState(['product 1', 'product 2', 'product 3']);
 
   return (
-    <div>
-      <button> Show </button>
-    </div>
+    <>
+      <Navbar cartItemsCount={cartItems.length}></Navbar>
+      <Cart cartItems={cartItems} onClearCart={() => setCartItems([])}></Cart>
+    </>
   );
 }
 
