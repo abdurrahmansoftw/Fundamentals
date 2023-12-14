@@ -21,6 +21,6 @@ const ExpandableText = ({ children, maxChars = 100 }: ExpandableTextProps) => {
       </h2>
     </div>
   );
-};
+}; 
 
 export default ExpandableText;
