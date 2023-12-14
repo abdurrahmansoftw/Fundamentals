@@ -1,15 +1,11 @@
-import ListGourp from './components/ListGourp';
+import Button from './components/Button';
 
 function App() {
-  const items = ['An active item', 'A second item', 'A third item', 'A fourth item', 'And a fifth one'];
-
-  const handleSelectItem = (item: string) => {
-    console.log(item);
-  };
-
   return (
     <div>
-      <ListGourp items={items} heading={'Group items'} onSelectItem={handleSelectItem} />
+      <Button color='secondary' onClick={() => console.log('Clicked!')}>
+        My Button
+      </Button>
     </div>
   );
 }
