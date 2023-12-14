@@ -1,10 +1,10 @@
-import { AiFillCalculator } from 'react-icons/ai';
 import './App.css';
+import Like from './components/Like';
 
 function App() {
   return (
     <>
-      <AiFillCalculator color='red' size='400' />
+      <Like onClick={() => console.log('clicked')} />
     </>
   );
 }
