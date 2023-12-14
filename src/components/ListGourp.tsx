@@ -1,22 +1,27 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 
-function ListGourp() {
-  let items = ['An active item', 'A second item', 'A third item', 'A fourth item', 'And a fifth one'];
+interface ListGourpProps {
+  items: string[];
+  heading: string;
+  onSelectItem: (item: string) => void;
+}
 
-  items = [];
-
-  // const message = items.length === 0 ? 'Please create a new item' : 'There are ' + items.length + ' items';
-  // const getMessage = () => {
-  //   return items.length === 0 ? 'Please create a new item' : 'There are ' + items.length + ' items';
-  // };
+function ListGourp({ items, heading, onSelectItem }: ListGourpProps) {
+  const [seletedIndex, setSeletedIndex] = useState(-1);
 
   return (
     <Fragment>
-      <h1>items List</h1>
+      <h1>{heading}</h1>
       {items.length === 0 && <p>Please create a new item</p>}
       <ul className='list-group'>
         {items.map((item, index) => (
-          <li className='list-group-item' key={index}>
+          <li
+            className={seletedIndex === index ? 'list-group-item active' : 'list-group-item '}
+            key={item}
+            onClick={() => {
+              setSeletedIndex(index);
+              onSelectItem(item);
+            }}>
             {index + 1}. {item}
           </li>
         ))}
