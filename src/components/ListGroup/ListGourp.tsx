@@ -16,7 +16,7 @@ const ListGourp = () => {
   return (
     <>
       <h1>list group</h1>
-      <List className={[styles.listGrpup, styles.container].join(' ')}>
+      <List className={[styles.listGrpup, styles.container].join(' ')} style={{ backgroundColor: 'red' }}>
         <ListItem>dhaka</ListItem>
         <ListItem>dhaka</ListItem>
         <ListItem>dhaka</ListItem>

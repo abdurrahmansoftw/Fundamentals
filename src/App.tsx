@@ -1,8 +1,12 @@
+import { AiFillCalculator } from 'react-icons/ai';
 import './App.css';
-import ListGourp from './components/ListGroup';
 
 function App() {
-  return <ListGourp></ListGourp>;
+  return (
+    <>
+      <AiFillCalculator color='red' size='400' />
+    </>
+  );
 }
 
 export default App;
