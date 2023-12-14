@@ -2,13 +2,26 @@ import { useState } from 'react';
 import './App.css';
 
 function App() {
-  // const [firstName, setFirstName] = useState('');
-  // const [lastName, setLastName] = useState('');
+  // const [game, setGame] = useState({
+  //   id: 1,
+  //   player: {
+  //     name: 'Player 1',
+  //     score: 0,
+  //   },
+  // });
 
-  const [person, setPerson] = useState({ firstname: '', lastname: '' });
+  // const handleClick = () => {
+  //   setGame({ ...game, player: { ...game, player: { ...game.player, name: 'akaid' } } });
+  // };
 
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [error, setError] = useState('');
+  const [pizza, setPizza] = useState({
+    name: 'Pepperoni',
+    toppings: ['Pepperoni'],
+  });
+
+  const handleClick = () => {
+    setPizza({ ...pizza, toppings: [...pizza.toppings, 'Bacon'] });
+  };
 
   return (
     <div>
