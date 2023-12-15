@@ -1,9 +1,9 @@
-import { Grid } from '@chakra-ui/react';
+import { Grid, GridItem } from '@chakra-ui/react';
 
 function App() {
   return (
     <Grid>
-      <p>hello</p>
+      <GridItem>hello</GridItem>
     </Grid>
   );
 }
