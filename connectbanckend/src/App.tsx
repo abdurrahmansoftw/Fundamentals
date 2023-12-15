@@ -12,7 +12,7 @@ const App = () => {
   const [errer, setError] = useState('');
 
   useEffect(() => {
-    const controller = new AbortController();
+    
     setIsLoading(true);
     ApiClient.get<User[]>('/users', {
       signal: controller.signal,
