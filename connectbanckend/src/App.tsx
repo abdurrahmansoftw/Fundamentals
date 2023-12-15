@@ -56,7 +56,7 @@ const App = () => {
 
   const updateUser = (user: User) => {
     const originalUsers = [...users];
-    const updatedUser = { ...user, name: user.name + '!' };
+    const updatedUser = { ...user, name: user.name + '! akaid' };
     setUsers(users.map((u) => (u.id === user.id ? updatedUser : u)));
 
     axios.patch('https://jsonplaceholder.typicode.com/users/' + user.id, updatedUser).catch((err) => {
@@ -64,7 +64,7 @@ const App = () => {
       setUsers(originalUsers);
     });
   };
-  
+
   return (
     <div className='container'>
       <h1>UserList</h1>
