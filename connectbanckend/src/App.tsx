@@ -40,11 +40,21 @@ const App = () => {
     });
   };
 
+  const addUser = () => {
+    const newUser = { id: Math.random(), name: 'akaid' };
+    setUsers([newUser, ...users]);
+  };
+
   return (
     <div className='container'>
       <h1>UserList</h1>
       {errer && <p className='text-danger'>{errer}</p>}
       {isLoading && <p className='text-primary'>Loading...</p>}
+
+      <button type='button' className='btn btn-sm btn-primary' onClick={addUser}>
+        Create User
+      </button>
+
       <ol className='list-group'>
         {users.map((user) => (
           <li key={user.id} className='list-group-item d-flex justify-content-between'>
