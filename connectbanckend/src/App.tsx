@@ -1,5 +1,5 @@
-import axios, { CanceledError } from 'axios';
 import { useEffect, useState } from 'react';
+import ApiClient, { CanceledError } from './services/api-client';
 
 interface User {
   id: number;
@@ -14,10 +14,9 @@ const App = () => {
   useEffect(() => {
     const controller = new AbortController();
     setIsLoading(true);
-    axios
-      .get<User[]>('https://jsonplaceholder.typicode.com/users', {
-        signal: controller.signal,
-      })
+    ApiClient.get<User[]>('/users', {
+      signal: controller.signal,
+    })
       .then((res) => {
         setUsers(res.data);
         setIsLoading(false);
@@ -34,7 +33,7 @@ const App = () => {
   const deleteUser = (user: User) => {
     const originalUsers = [...users];
     setUsers(users.filter((u) => u.id !== user.id));
-    axios.delete('https://jsonplaceholder.typicode.com/user/' + user.id).catch((err) => {
+    ApiClient.delete('/user/' + user.id).catch((err) => {
       setError(err.message);
       setUsers(originalUsers);
     });
@@ -45,8 +44,7 @@ const App = () => {
     const newUser = { id: Math.random(), name: 'akaid' };
     setUsers([newUser, ...users]);
 
-    axios
-      .post('https://jsonplaceholder.typicode.com/users', newUser)
+    ApiClient.post('/users', newUser)
       .then(({ data: savedUser }) => setUsers([savedUser, ...users]))
       .catch((err) => {
         setError(err.message);
@@ -59,7 +57,7 @@ const App = () => {
     const updatedUser = { ...user, name: user.name + '! akaid' };
     setUsers(users.map((u) => (u.id === user.id ? updatedUser : u)));
 
-    axios.patch('https://jsonplaceholder.typicode.com/users/' + user.id, updatedUser).catch((err) => {
+    ApiClient.patch('/users/' + user.id, updatedUser).catch((err) => {
       setError(err.message);
       setUsers(originalUsers);
     });
