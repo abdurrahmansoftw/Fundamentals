@@ -1,9 +1,16 @@
-import { Button } from '@chakra-ui/react';
+import { Button, Stack } from '@chakra-ui/react';
 
 function App() {
   return (
     <div>
-      <Button colorScheme='blue'>Button</Button>
+      <Stack direction='row' spacing={4}>
+        <Button leftIcon={<MdBuild />} colorScheme='pink' variant='solid'>
+          Settings
+        </Button>
+        <Button rightIcon={<MdCall />} colorScheme='blue' variant='outline'>
+          Call us
+        </Button>
+      </Stack>
     </div>
   );
 }
