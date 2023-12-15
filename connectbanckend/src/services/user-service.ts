@@ -1,11 +1,26 @@
-import apiClient from "./api-client";
+import apiClient from './api-client';
+
+export interface User {
+  id: number;
+  name: string;
+}
 
 class UserService {
   getAllUsers() {
     const controller = new AbortController();
-    apiClient.get<User[]>('/users', {
+    const request = apiClient.get<User[]>('/users', {
       signal: controller.signal,
     });
+
+    return { request, cancle: () => controller.abort() };
+  }
+
+  deleteUser(id: number) {
+    return apiClient.delete('/users/' + id);
+  }
+
+  createUser(user: User) {
+    return apiClient.post('/users', user);
   }
 }
 
