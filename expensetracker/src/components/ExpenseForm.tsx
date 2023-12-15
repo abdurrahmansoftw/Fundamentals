@@ -8,13 +8,13 @@ interface ExpenseFormProps {
 }
 
 const schema = z.object({
-  description: z.string().min(3, { message: 'minimum 3 character' }).max(50, { message: 'maximum 50 character' }),
+  description: z.string().min(3, { message: 'Minimum 3 Character' }).max(50, { message: 'Maximum 50 Character' }),
   amount: z
-    .number({ invalid_type_error: 'amount is Required' })
-    .min(0, { message: 'minimum amount $1' })
-    .max(100_000, { message: 'maximum amount $100,000' }),
+    .number({ invalid_type_error: 'Amount is Required' })
+    .min(0, { message: 'Minimum amount $1' })
+    .max(100_000, { message: 'Maximum amount $100,000' }),
   category: z.enum(categories, {
-    errorMap: () => ({ message: 'category is Required' }),
+    errorMap: () => ({ message: 'Category is required' }),
   }),
 });
 

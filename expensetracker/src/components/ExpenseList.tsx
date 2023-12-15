@@ -31,7 +31,7 @@ const ExpenseList = ({ expenses, onDelete }: ExpenseListProps) => {
             <tr key={expense.id}>
               <td>{index + 1}</td>
               <td>{expense.description}</td>
-              <td>{expense.amount}</td>
+              <td>${expense.amount}</td>
               <td>{expense.category}</td>
               <td>
                 <button className='btn btn-sm btn-outline-danger' onClick={() => onDelete(expense.id)}>
@@ -43,6 +43,7 @@ const ExpenseList = ({ expenses, onDelete }: ExpenseListProps) => {
         </tbody>
         <tfoot>
           <tr>
+            <td></td>
             <td>Total</td>
             <td>${expenses.reduce((acc, expense) => expense.amount + acc, 0).toFixed(2)}</td>
             <td></td>
