@@ -11,7 +11,11 @@ interface Todo {
 const TodoList = () => {
   const fetchTodos = () => axios.get<Todo[]>('https://jsonplaceholder.typicode.com/todos').then((res) => res.data);
 
-  const { isPending: loading, error, data: todos } = useQuery({ queryKey: ['todos'], queryFn: fetchTodos });
+  const {
+    isPending: loading,
+    error,
+    data: todos,
+  } = useQuery<Todo[], Error>({ queryKey: ['todos'], queryFn: fetchTodos });
 
   if (loading) return 'Loading...';
 
