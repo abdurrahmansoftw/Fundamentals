@@ -13,7 +13,7 @@ const PostList = () => {
   return (
     <>
       <ul className='list-group'>
-        {data?.map((post) => (
+        {data.map((post) => (
           <li key={post.id} className='list-group-item'>
             {post.title}
           </li>
