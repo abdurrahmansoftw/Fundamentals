@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { FormEvent, useRef } from 'react';
 import useAddTodo from '../hooks/useAddTodo';
 
 const TodoForm = () => {
@@ -7,7 +7,7 @@ const TodoForm = () => {
     if (ref.current) ref.current.value = '';
   });
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: FormEvent) => {
     if (!ref.current?.value) return;
 
     event.preventDefault();
@@ -27,9 +27,7 @@ const TodoForm = () => {
           <input ref={ref} type='text' className='form-control' />
         </div>
         <div className='col'>
-          <button disabled={addTodo.isPending} className='btn btn-primary'>
-            {addTodo.isPending ? 'Adding' : 'Add'}
-          </button>
+          <button className='btn btn-primary'>Add</button>
         </div>
       </form>
     </>
