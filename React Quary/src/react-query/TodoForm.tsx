@@ -6,7 +6,7 @@ import { Todo } from '../hooks/useTodos';
 const TodoForm = () => {
   const queryClient = useQueryClient();
 
-  const addTodo = useMutation({
+  const addTodo = useMutation<Todo, Error, Todo>({
     mutationFn: (todo: Todo) =>
       axios.post<Todo>('https://jsonplaceholder.typicode.com/todos', todo).then((response) => response.data),
     onSuccess: (savedTodo, newTodo) => {
@@ -20,26 +20,29 @@ const TodoForm = () => {
   const ref = useRef<HTMLInputElement>(null);
 
   return (
-    <form
-      className='row mb-3'
-      onSubmit={(event) => {
-        if (!ref.current?.value) return;
+    <>
+      {addTodo.error && <div className='alert alert-primary mb-3'>{addTodo.error.message}</div>}
+      <form
+        className='row mb-3'
+        onSubmit={(event) => {
+          if (!ref.current?.value) return;
 
-        event.preventDefault();
-        addTodo.mutate({
-          id: 0,
-          title: ref.current?.value,
-          completed: false,
-          userId: Date.now(),
-        });
-      }}>
-      <div className='col'>
-        <input ref={ref} type='text' className='form-control' />
-      </div>
-      <div className='col'>
-        <button className='btn btn-primary'>Add</button>
-      </div>
-    </form>
+          event.preventDefault();
+          addTodo.mutate({
+            id: 0,
+            title: ref.current?.value,
+            completed: false,
+            userId: Date.now(),
+          });
+        }}>
+        <div className='col'>
+          <input ref={ref} type='text' className='form-control' />
+        </div>
+        <div className='col'>
+          <button className='btn btn-primary'>Add</button>
+        </div>
+      </form>
+    </>
   );
 };
 
