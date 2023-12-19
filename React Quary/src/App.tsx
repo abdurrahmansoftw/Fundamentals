@@ -1,18 +1,10 @@
-import Counter from './state-management/counter/Counter';
-import HomePage from './state-management/HomePage';
-import NavBar from './state-management/NavBar';
-import { TaskProvider } from './state-management/tasks';
+import HomePage from './routing/HomePage';
 
 function App() {
   return (
     <div className='container p-4'>
-      <h1>task</h1>
-
-      <TaskProvider>
-        <Counter />
-        <NavBar />
-        <HomePage />
-      </TaskProvider>
+      <h1>React Query</h1>
+      <HomePage />
     </div>
   );
 }
