@@ -1,12 +1,10 @@
-import TodoForm from './react-query/TodoForm';
-import TodoList from './react-query/TodoList';
+import TaskList from "./state-management/TaskList";
 
 function App() {
   return (
     <div className='container p-4'>
       <h1>Todo Form</h1>
-      <TodoForm />
-      <TodoList />
+      <TaskList />
     </div>
   );
 }
