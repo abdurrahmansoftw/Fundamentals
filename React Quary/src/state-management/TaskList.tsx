@@ -1,18 +1,13 @@
-import { useReducer } from 'react';
-import taskReducer from '../reducers/taskReducer';
+import { useContext } from 'react';
+import TaskContext from '../contexts/taskContext';
 
 const TaskList = () => {
-  const [tasks, dispatch] = useReducer(taskReducer, []);
+  const { tasks, dispatch } = useContext(TaskContext);
 
   return (
     <>
       <button
-        onClick={() =>
-          dispatch({
-            type: 'ADD',
-            payload: { id: Date.now(), title: 'New Task' },
-          })
-        }
+        onClick={() => dispatch({ type: 'ADD', payload: { id: Date.now(), title: 'New Task' } })}
         className='btn btn-primary my-3'>
         Add Task
       </button>
@@ -20,14 +15,7 @@ const TaskList = () => {
         {tasks.map((task) => (
           <li key={task.id} className='list-group-item d-flex justify-content-between align-items-center'>
             <span className='flex-grow-1'>{task.title}</span>
-            <button
-              className='btn btn-outline-danger'
-              onClick={() =>
-                dispatch({
-                  type: 'DELETE',
-                  taskId: task.id,
-                })
-              }>
+            <button className='btn btn-outline-danger' onClick={() => dispatch({ type: 'DELETE', taskId: task.id })}>
               Delete
             </button>
           </li>
