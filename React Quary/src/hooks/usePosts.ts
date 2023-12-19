@@ -25,6 +25,5 @@ const usePosts = (query: PostQuery) =>
         })
         .then((res) => res.data),
     staleTime: 1 * 60 * 1000, //1m
-    keepPreviousData: true,
   });
 export default usePosts;
