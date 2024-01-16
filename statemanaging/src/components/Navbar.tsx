@@ -1,13 +1,13 @@
 interface navbarProps {
-  cartItemsCount: number;
+	cartItemsCount: number
 }
 
 const Navbar = ({ cartItemsCount }: navbarProps) => {
-  return (
-    <div>
-      <h1>Navbar: {cartItemsCount}</h1>
-    </div>
-  );
-};
+	return (
+		<div>
+			<h1>Navbar: {cartItemsCount}</h1>
+		</div>
+	)
+}
 
-export default Navbar;
+export default Navbar
