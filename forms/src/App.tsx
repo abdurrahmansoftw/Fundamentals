@@ -1,11 +1,11 @@
-import FormZod from './components/FormZod';
+import FormZod from './components/FormZod'
 
 const App = () => {
-  return (
-    <div>
-      <FormZod />
-    </div>
-  );
-};
+	return (
+		<div>
+			<FormZod />
+		</div>
+	)
+}
 
-export default App;
+export default App
