@@ -1,3 +1,3 @@
-import ListGourp from './ListGourp';
+import ListGourp from './ListGourp'
 
-export default ListGourp;
+export default ListGourp
