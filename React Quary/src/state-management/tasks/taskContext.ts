@@ -1,11 +1,11 @@
-import React, { Dispatch } from 'react';
-import { Task, TaskAction } from './TaskProvider';
+import React, { Dispatch } from 'react'
+import { Task, TaskAction } from './TaskProvider'
 
 interface TaskContextType {
-  tasks: Task[];
-  dispatch: Dispatch<TaskAction>;
+	tasks: Task[]
+	dispatch: Dispatch<TaskAction>
 }
 
-const TaskContext = React.createContext<TaskContextType>({} as TaskContextType);
+const TaskContext = React.createContext<TaskContextType>({} as TaskContextType)
 
-export default TaskContext;
+export default TaskContext
