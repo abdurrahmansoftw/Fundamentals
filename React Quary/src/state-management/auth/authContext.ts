@@ -1,11 +1,11 @@
-import React, { Dispatch } from 'react';
-import { AuthAction } from './AuthProvider';
+import React, { Dispatch } from 'react'
+import { AuthAction } from './AuthProvider'
 
 interface AuthContextType {
-  user: string;
-  dispatch: Dispatch<AuthAction>;
+	user: string
+	dispatch: Dispatch<AuthAction>
 }
 
-const AuthContext = React.createContext<AuthContextType>({} as AuthContextType);
+const AuthContext = React.createContext<AuthContextType>({} as AuthContextType)
 
-export default AuthContext;
+export default AuthContext
