@@ -1,16 +1,16 @@
-import LoginStatus from './auth/LoginStatus';
-import useCounterStore from './counter/store';
+import LoginStatus from './auth/LoginStatus'
+import useCounterStore from './counter/store'
 
 const NavBar = () => {
-  const counter = useCounterStore((s) => s.counter);
-  console.log('NavBar rendered');
+	const counter = useCounterStore((s) => s.counter)
+	console.log('NavBar rendered')
 
-  return (
-    <nav className='navbar d-flex justify-content-between'>
-      <span className='badge text-bg-secondary'>{counter}</span>
-      <LoginStatus />
-    </nav>
-  );
-};
+	return (
+		<nav className='navbar d-flex justify-content-between'>
+			<span className='badge text-bg-secondary'>{counter}</span>
+			<LoginStatus />
+		</nav>
+	)
+}
 
-export default NavBar;
+export default NavBar
