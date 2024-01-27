@@ -1,10 +1,10 @@
 const ErrorPage = () => {
-  return (
-    <>
-      <h1>Oops...</h1>
-      <p>Sorry, an unexpected error has occurred.</p>
-    </>
-  );
-};
+	return (
+		<>
+			<h1>Oops...</h1>
+			<p>Sorry, an unexpected error has occurred.</p>
+		</>
+	)
+}
 
-export default ErrorPage;
+export default ErrorPage
