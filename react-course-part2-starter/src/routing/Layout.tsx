@@ -1,12 +1,12 @@
-import NavBar from './NavBar';
+import NavBar from './NavBar'
 
 const Layout = () => {
-  return (
-    <>
-      <NavBar />
-      <div id="main"></div>
-    </>
-  );
-};
+	return (
+		<>
+			<NavBar />
+			<div id='main'></div>
+		</>
+	)
+}
 
-export default Layout;
+export default Layout
