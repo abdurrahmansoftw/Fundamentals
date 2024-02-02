@@ -1,10 +1,19 @@
-import useTodos from '../hooks/useTodos'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import { Todo } from '../services/todoService'
 
 const TodoList = () => {
-	const { isPending: loading, error, data: todos } = useTodos()
+	const [todos, setTodos] = useState<Todo[]>([])
+	const [error, setError] = useState('')
 
-	if (loading) return 'Loading...'
-	if (error) return 'An error has occurred: ' + error.message
+	useEffect(() => {
+		axios
+			.get('https://jsonplaceholder.typicode.com/todos')
+			.then((res) => setTodos(res.data))
+			.catch((error) => setError(error))
+	})
+
+	if (error) return <p>{error}</p>
 
 	return (
 		<ul className='list-group'>
