@@ -14,5 +14,4 @@ const ContactPage = () => {
 		</form>
 	)
 }
-
 export default ContactPage
