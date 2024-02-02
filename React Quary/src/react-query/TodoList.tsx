@@ -1,8 +1,14 @@
+import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Todo } from '../services/todoService'
 
 const TodoList = () => {
+	useQuery({
+		queryKey: ['todos'],
+		queryFn: () => axios.get('https://jsonplaceholder.typicode.com/todos'),
+	})
+
 	const [todos, setTodos] = useState<Todo[]>([])
 	const [error, setError] = useState('')
 
