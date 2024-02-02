@@ -1,31 +1,16 @@
+import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
-import { useEffect, useState } from 'react'
-import { Todo } from '../services/todoService'
-import {useQuery} from  '@tanstack/react-query'
 
 const TodoList = () => {
-
-	const fetchTodos = () => 
-		axios
-		.get('https://jsonplaceholder.typicode.com/todos')
-		.then((res) => res.data),
-	useQuery({
-		queryKey: ['todos'],
-		queryFn: () =>fetchTodos
-			
-	})
-
-	const [todos, setTodos] = useState<Todo[]>([])
-	const [error, setError] = useState('')
-
-	useEffect(() => {
+	const fetchTodos = () =>
 		axios
 			.get('https://jsonplaceholder.typicode.com/todos')
-			.then((res) => setTodos(res.data))
-			.catch((error) => setError(error))
-	})
+			.then((res) => res.data)
 
-	if (error) return <p>{error}</p>
+	const query = useQuery({
+		queryKey: ['todos'],
+		queryFn: () => fetchTodos,
+	})
 
 	return (
 		<ul className='list-group'>
