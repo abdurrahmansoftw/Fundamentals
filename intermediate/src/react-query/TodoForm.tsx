@@ -12,12 +12,19 @@ const TodoForm = () => {
         .post<Todo>('https://jsonplaceholder.typicode.com/todos', todo)
         .then((res) => res.data),
 
-    onSuccess: (savedTodo, newTodo) => {
+    onMutate: (newTodo: Todo) => {
       queryClient.setQueryData<Todo[]>(['todos'], (todos) => [
-        savedTodo,
+        newTodo,
         ...(todos || []),
       ])
       if (ref.current) return (ref.current.value = '')
+    },
+
+    onSuccess: (savedTodo, newTodo) => {
+      queryClient.setQueryData<Todo[]>(
+        ['todos'],
+        todos?.map((todo) => (todo === newTodo ? savedTodo : todo))
+      )
     },
   })
 
