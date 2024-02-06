@@ -7,8 +7,13 @@ const TodoForm = () => {
   const addTodo = useMutation({
     mutationFn: (todo: Todo) =>
       axios
-        .post('https://jsonplaceholder.typicode.com/todos', todo)
+        .post<Todo>('https://jsonplaceholder.typicode.com/todos', todo)
         .then((res) => res.data),
+
+    onSuccess: (savedTodo, newTodo) => {
+      // console.log(savedTodo)
+      
+    },
   })
 
   const ref = useRef<HTMLInputElement>(null)
