@@ -4,9 +4,11 @@ import { useRef } from 'react'
 import { Todo } from './TodoList'
 
 const TodoForm = () => {
-  useMutation({
+  const addTodo = useMutation({
     mutationFn: (todo: Todo) =>
-      axios.post('https://jsonplaceholder.typicode.com/todos'),
+      axios
+        .post('https://jsonplaceholder.typicode.com/todos', todo)
+        .then((res) => res.data),
   })
 
   const ref = useRef<HTMLInputElement>(null)
@@ -16,6 +18,14 @@ const TodoForm = () => {
       className='row mb-3'
       onSubmit={(event) => {
         event.preventDefault()
+
+        if (ref.current && ref.current.value)
+          addTodo.mutate({
+            id: 0,
+            title: ref.current?.value,
+            completed: false,
+            userId: 1,
+          })
       }}
     >
       <div className='col-10'>
