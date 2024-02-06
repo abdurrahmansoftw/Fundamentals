@@ -4,7 +4,7 @@ import { useAddTodo } from '../hooks/useAddTodo'
 const TodoForm = () => {
   const ref = useRef<HTMLInputElement>(null)
 
-  useAddTodo(() => {
+  const addTodo = useAddTodo(() => {
     if (ref.current) ref.current.value = ''
   })
 

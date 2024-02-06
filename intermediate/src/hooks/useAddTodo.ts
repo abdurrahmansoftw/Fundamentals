@@ -9,7 +9,7 @@ interface AddTodoContext {
 export const useAddTodo = (onAdd: () => void) => {
   const queryClient = useQueryClient()
 
-  const addTodo = useMutation<Todo, Error, Todo, AddTodoContext>({
+  return useMutation<Todo, Error, Todo, AddTodoContext>({
     mutationFn: (todo: Todo) =>
       axios
         .post<Todo>('https://jsonplaceholder.typicode.com/todos', todo)
@@ -18,9 +18,9 @@ export const useAddTodo = (onAdd: () => void) => {
     onMutate: (newTodo: Todo) => {
       const previusTodos = queryClient.getQueryData<Todo[]>(['todos']) || []
 
-      queryClient.setQueryData<Todo[]>(['todos'], (todos) => [
+      queryClient.setQueryData<Todo[]>(['todos'], (todos = []) => [
         newTodo,
-        ...(todos || []),
+        ...todos,
       ])
 
       onAdd()
