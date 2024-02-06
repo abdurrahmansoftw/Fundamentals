@@ -13,11 +13,6 @@ const TodoForm = () => {
         .then((res) => res.data),
 
     onSuccess: (savedTodo, newTodo) => {
-      // console.log(savedTodo)
-      // queryClient.invalidateQueries({
-      //   queryKey: ['todos'],
-      // })
-
       queryClient.setQueryData<Todo[]>(['todos'], (todos) => [
         savedTodo,
         ...(todos || []),
@@ -50,7 +45,9 @@ const TodoForm = () => {
           <input ref={ref} type='text' className='form-control ' />
         </div>
         <div className='col'>
-          <button className='btn btn-primary'>Add</button>
+          <button className='btn btn-primary' disabled={addTodo.isPending}>
+            {addTodo.isPending ? 'Adding' : 'Add'}
+          </button>
         </div>
       </form>
     </div>
