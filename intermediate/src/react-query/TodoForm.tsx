@@ -27,7 +27,7 @@ const TodoForm = () => {
             })
         }}
       >
-        <div className='col-10'>
+        <div className='col'>
           <input ref={ref} type='text' className='form-control ' />
         </div>
         <div className='col'>
