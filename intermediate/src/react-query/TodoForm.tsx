@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import { Todo } from './TodoList'
 
 const TodoForm = () => {
-const queryClient =  useQueryClient()
+  const queryClient = useQueryClient()
 
   const addTodo = useMutation({
     mutationFn: (todo: Todo) =>
@@ -14,6 +14,9 @@ const queryClient =  useQueryClient()
 
     onSuccess: (savedTodo, newTodo) => {
       // console.log(savedTodo)
+      // queryClient.invalidateQueries({
+      //   queryKey: ['todos'],
+      // })
     },
   })
 
