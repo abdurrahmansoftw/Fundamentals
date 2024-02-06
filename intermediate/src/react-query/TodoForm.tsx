@@ -28,7 +28,7 @@ const TodoForm = () => {
         }}
       >
         <div className='col'>
-          <input ref={ref} type='text' className='form-control ' />
+          <input ref={ref} type='text' className='form-control' />
         </div>
         <div className='col'>
           <button className='btn btn-primary' disabled={addTodo.isPending}>
