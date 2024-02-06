@@ -35,6 +35,7 @@ const TodoForm = () => {
     },
 
     onError: (error, newTodo, context) => {
+      if (!context) return
       queryClient.setQueryData<Todo[]>(['todos'], context?.previusTodos)
     },
   })
