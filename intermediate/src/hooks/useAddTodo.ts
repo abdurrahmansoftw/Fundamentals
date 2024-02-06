@@ -6,7 +6,7 @@ interface AddTodoContext {
   previusTodos: Todo[]
 }
 
-export const useAddTodo = () => {
+export const useAddTodo = (onAdd: () => void) => {
   const queryClient = useQueryClient()
 
   const addTodo = useMutation<Todo, Error, Todo, AddTodoContext>({
@@ -22,8 +22,8 @@ export const useAddTodo = () => {
         newTodo,
         ...(todos || []),
       ])
-      if (ref.current) return (ref.current.value = '')
 
+      onAdd()
       return { previusTodos }
     },
 
