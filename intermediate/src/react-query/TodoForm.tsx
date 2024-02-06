@@ -17,6 +17,11 @@ const TodoForm = () => {
       // queryClient.invalidateQueries({
       //   queryKey: ['todos'],
       // })
+
+      queryClient.setQueryData<Todo[]>(['todos'], (todos) => [
+        savedTodo,
+        ...(todos || []),
+      ])
     },
   })
 
