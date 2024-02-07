@@ -1,12 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
-
-export interface Todo {
-  id: number
-  title: string
-  userId: number
-  completed: boolean
-}
+import { Todo } from '../services/todoService'
 
 const TodoList = () => {
   const fetch = () =>
