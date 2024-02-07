@@ -1,10 +1,10 @@
-import TaskList from './state-management/TaskList'
+import LoginStatus from './state-management/LoginStatus'
 
 function App() {
   return (
     <div>
-      <h1>React Starter Project</h1>
-      <TaskList />
+      <h1>Login Status</h1>
+      <LoginStatus />
     </div>
   )
 }
