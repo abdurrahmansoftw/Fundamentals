@@ -1,11 +1,11 @@
-import React from 'react'
-import { Task, TaskAction } from '../reducers/taskReducer'
+import React, { Dispatch } from 'react'
+import { Task, TasksAction } from '../reducers/taskReducer'
 
 interface TaskContextType {
   tasks: Task[]
-  dispatch: TaskAction
+  dispatch: Dispatch<TasksAction>
 }
 
-const TaskContext = React.createContext<TaskContextType>({} as TaskContextType)
+const TasksContext = React.createContext<TaskContextType>({} as TaskContextType)
 
-export default TaskContext
+export default TasksContext
