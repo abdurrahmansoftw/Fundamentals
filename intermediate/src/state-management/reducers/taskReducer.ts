@@ -10,7 +10,7 @@ interface AddTask {
 
 interface DeleteTask {
   type: 'DELETE'
-  taskId: Task
+  taskId: number
 }
 
 type TaskAction = AddTask | DeleteTask
