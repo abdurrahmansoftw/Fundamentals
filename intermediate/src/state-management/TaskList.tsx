@@ -25,7 +25,7 @@ const TaskList = () => {
             <span className='flex-grow-1'>{task.title}</span>
             <button
               className='btn btn-outline-danger'
-              onClick={() => setTasks(tasks.filter((t) => t.id !== task.id))}
+              onClick={() => dispatch({ type: 'DELETE', taskId: task.id })}
             >
               Delete
             </button>
