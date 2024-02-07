@@ -1,10 +1,10 @@
-import HomePage from './state-management/HomePage'
+import TaskList from './state-management/TaskList'
 
 function App() {
   return (
     <div>
       <h1>React Starter Project</h1>
-      <HomePage />
+      <TaskList />
     </div>
   )
 }
