@@ -1,15 +1,16 @@
-import { useState } from 'react'
-
-
+import { useReducer } from 'react'
+import taskReducer from './reducers/taskReducer'
 
 const TaskList = () => {
-  const [tasks, setTasks] = useState<Task[]>([])
-
+  const [tasks, dispatch] = useReducer(taskReducer, [])
   return (
     <>
       <button
         onClick={() =>
-          setTasks([{ id: Date.now(), title: 'Task ' + Date.now() }, ...tasks])
+          dispatch({
+            type: 'ADD',
+            task: { id: Date.now(), title: 'Task' + Date.now() },
+          })
         }
         className='btn btn-primary my-3'
       >
