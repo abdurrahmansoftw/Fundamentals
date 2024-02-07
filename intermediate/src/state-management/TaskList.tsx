@@ -1,9 +1,6 @@
 import { useState } from 'react'
 
-interface Task {
-  id: number
-  title: string
-}
+
 
 const TaskList = () => {
   const [tasks, setTasks] = useState<Task[]>([])
