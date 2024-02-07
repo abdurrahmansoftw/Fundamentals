@@ -1,7 +1,10 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
 import { Todo } from '../react-query/TodoList'
+import APIClient from '../services/apiClient'
 import { CACHE_KEY_TODOS } from './constants'
+
+const apiClient = new APIClient<Todo>('/todos')
 
 interface AddTodoContext {
   previusTodos: Todo[]
