@@ -11,6 +11,7 @@ export const useAddTodo = (onAdd: () => void) => {
 
   return useMutation<Todo, Error, Todo, AddTodoContext>({
     mutationFn: todoService.post,
+    
     onMutate: (newTodo: Todo) => {
       const previusTodos =
         queryClient.getQueryData<Todo[]>(CACHE_KEY_TODOS) || []
